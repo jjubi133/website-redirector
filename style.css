@@ -1,0 +1,161 @@
+body {
+  margin: 0;
+  height: 100vh;
+  background: linear-gradient(135deg, #ffdee9, #ffe6f0);
+  font-family: "Comic Sans MS", "Trebuchet MS", sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card {
+  background: white;
+  padding: 30px 40px;
+  border-radius: 20px;
+  text-align: center;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  max-width: 400px;
+}
+
+h1 {
+  color: #e6397e;
+  margin-bottom: 20px;
+}
+
+.valentine-img {
+  width: 100%;
+  max-width: 250px;
+  border-radius: 15px;
+  margin-bottom: 20px;
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.btn {
+  padding: 12px 24px;
+  border-radius: 30px;
+  font-size: 18px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.yes {
+  background: #ff4d88;
+  color: white;
+  text-decoration: none;
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.yes:hover {
+  background: #ff2f73;
+  transform: scale(1.1);
+}
+
+.no {
+  background: #ffd1dc;
+  color: #999;
+  cursor: not-allowed;
+  position: relative;
+}
+
+/* Fake button behavior */
+.no:hover {
+  transform: translateY(-3px);
+}
+
+.hint {
+  margin-top: 15px;
+  font-size: 14px;
+  color: #888;
+}
+
+.message {
+  font-size: 18px;
+  color: #444;
+  line-height: 1.5;
+}
+
+.hearts {
+  margin-top: 20px;
+  font-size: 24px;
+}
+
+/* YES PAGE BACKGROUND EFFECTS */
+
+.yes-page {
+  overflow: hidden;
+  position: relative;
+}
+
+/* Floating hearts */
+.hearts-bg {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.hearts-bg span {
+  position: absolute;
+  bottom: -50px;
+  font-size: 24px;
+  animation: floatUp 12s infinite ease-in;
+  opacity: 0.8;
+}
+
+/* Random positions & delays */
+.hearts-bg span:nth-child(1) { left: 10%; animation-delay: 0s; }
+.hearts-bg span:nth-child(2) { left: 30%; animation-delay: 3s; }
+.hearts-bg span:nth-child(3) { left: 50%; animation-delay: 6s; }
+.hearts-bg span:nth-child(4) { left: 70%; animation-delay: 1s; }
+.hearts-bg span:nth-child(5) { left: 90%; animation-delay: 4s; }
+
+@keyframes floatUp {
+  0% {
+    transform: translateY(0) scale(0.8);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-110vh) scale(1.2);
+    opacity: 0;
+  }
+}
+
+/* Sparkle overlay */
+.sparkles {
+  position: fixed;
+  inset: 0;
+  background-image: radial-gradient(white 1px, transparent 1px);
+  background-size: 40px 40px;
+  opacity: 0.15;
+  animation: sparkleMove 20s linear infinite;
+  pointer-events: none;
+  z-index: 0;
+}
+
+@keyframes sparkleMove {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 200px 400px;
+  }
+}
+
+/* Ensure card stays on top */
+.card {
+  position: relative;
+  z-index: 1;
+}
+
